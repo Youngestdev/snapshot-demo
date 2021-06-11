@@ -34,17 +34,3 @@ spec:
 
 
 ---
-
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  annotations:
-    dev.okteto.com/from-snapshot-name: mongodb-snapshot
-    dev.okteto.com/from-snapshot-namespace: youngestdev
-  name: pvc-from-snapshot
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
