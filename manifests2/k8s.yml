@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-cloning-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-cloning-demo
+  template:
+    metadata:
+      labels:
+        app: data-cloning-demo
+    spec:
+      containers:
+      - image: youngestdev/fastapi-mongo:latest
+        name: data-cloning-demo
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: data-cloning-demo
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP
+  ports:
+  - name: "data-cloning-demo"
+    port: 8080
+  selector:
+    app: data-cloning-demo
+
+
+---
