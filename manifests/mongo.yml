@@ -9,6 +9,7 @@ spec:
   clusterIP: None
   selector:
     app: mongo
+
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -32,7 +33,7 @@ spec:
         - containerPort: 27017
         volumeMounts:
         - name: mongo-pv
-          mountPath: "/mnt/mongo_data"
+          mountPath: '/db/data'
   volumeClaimTemplates:
     - metadata:
         name: mongo-pv

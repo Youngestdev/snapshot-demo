@@ -3,6 +3,6 @@ kind: VolumeSnapshot
 metadata:
   name: mongo-snapshot
 spec:
-  volumeSnapshotClassName: data-cloning-snapshot
+  volumeSnapshotClassName: okteto-snapshot-class
   source:
-    persistentVolumeClaimName: mongo-pv
+    persistentVolumeClaimName: mongo-pv-mongodb-0
